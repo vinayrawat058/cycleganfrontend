@@ -27,7 +27,7 @@ function Navbar() {
         {extendNavbar && (
             <NavbarExtendedContainer>
               <NavbarLinkExtended to ="/">Dashboard</NavbarLinkExtended>
-              <NavbarLinkExtended to ="/about">About Us</NavbarLinkExtended>
+              <NavbarLinkExtended to ="/downloads">Downloads</NavbarLinkExtended>
             </NavbarExtendedContainer>
         )}
     </NavbarContainer>
