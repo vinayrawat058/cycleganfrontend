@@ -1,9 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
 
-.App {
-  text-align: center;
-}
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-top {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(255, 255, 255);
+    justify-items: center;
+    font-family: Poppins;
+    color: rgb(10, 9, 9);
+    z-index: 100;
+    box-shadow: 0px 2px 6px -5px #6d6363;
+}
+
+.navbar {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto;
+    height: 60px;
+}
+
+.link {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 14px;
+    justify-items: center;
+    font-family: 'Poppins';
+}
+
+.link a {
+    padding: 0px 10px;
+    transition: .2s ease-in all;
+}
+
+.link a:hover {
+    background: aliceblue;
+}
+
+.brand,
+.brand-name {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    /* position: relative;
+    left: 40px; */
+}
+
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/* drag drop container */
+.box {
+  position: relative;
+  background-color: #c8dadf;
+  padding: 90px 170px;
+  outline: 2px dashed #71a5b4;
+  outline-offset: -10px;
+  border-radius: 3px;
+  transition: outline-offset .15s ease-in-out ,background-color .15s linear;
+}
+
+.box__icon {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 40px;
+  fill: #487683;
+}
+
+.box__file {
+  position: absolute;
+  opacity: 0;
+  width: 1.7px;
+  height: 1.7px;
+  z-index: -1;
+}
+
+.box.highlight{
+  background-color: #ffffff;
+}
+
+/*
+.box__btn{
+  display: none;
+} */
+
+
+input + label {
+  max-width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.box__file ~ label  strong{
+  color: #1095b2;
+
+}
+.box__file ~ label  strong:hover{
+  color: #084755;
+}
+
+.selectGroup{
+  display: none;
 }
