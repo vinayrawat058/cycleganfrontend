@@ -1,16 +1,16 @@
 import './App.css';
+import Header from './components/header';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Navbar from './components/Navbar';
 
+import DragandDrop from './components/dragdrop';
 function App() {
   return (
-    <Router> 
-      <Navbar/>
-      <Routes>
-        <Route path='/' />
-        <Route path='/downloads' />
-      </Routes>
-    </Router>
+    <>
+    <Header/>
+    <div className='container'>
+      <DragandDrop/>
+    </div>
+    </>
   );
 }
 
