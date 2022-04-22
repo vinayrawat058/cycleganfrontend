@@ -67,6 +67,20 @@ a {
     height: 100vh;
     justify-content: center;
     align-content: center;
+   
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0px;
+      padding: 0 0;
+      text-align: center;
+      /* background-image: url('./Assests/vojtech-bruzek-mCjA1I8SlS8-unsplash.jpg'); */
+      background-size: 100%;
+      opacity: 0.9;
+      overflow: scroll;
+      overflow-x: hidden;
+  
+  
 }
 
 
@@ -127,3 +141,26 @@ input + label {
 .selectGroup{
   display: none;
 }
+
+.Fotter{
+  height: 98px;
+  width: 100%;
+  position: fixed;
+  /* top: 656px; */
+  left: 0;
+  bottom: 0;
+  background-color:rgba(90, 36, 36, 0.829);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+@media(max-width:450px){
+    .Fotter{
+        padding: 0 0;
+    }
+}
+
