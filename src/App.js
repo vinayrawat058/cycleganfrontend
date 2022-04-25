@@ -11,7 +11,7 @@ function App() {
     <div className='container'>
       <DragandDrop/>
     </div>
-    <Fotter/>
+    {/* <Fotter/> */}
     </>
   );
 }
