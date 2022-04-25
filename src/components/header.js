@@ -8,7 +8,7 @@ function Header(){
         <div className="header-top">
         <nav className="navbar">
             <div className="brand">
-                    <h1 className="brand-name">ArtistStyle</h1>
+                    <h1 className="brand-name">Artistic photos</h1>
             </div>
 
             {/* <div className="link">

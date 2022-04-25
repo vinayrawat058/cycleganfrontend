@@ -17,7 +17,7 @@ const DragandDrop = (props) =>{
 
     // const URL = "http://localhost:8000/static/image_name";  
     // const URL = "http://65.2.52.246:8000/api/";
-    const URL = " http://e960-157-33-246-1.ngrok.io/api/";
+    const URL = "http://1c2a-152-57-140-221.ngrok.io/api/";
 
     const box = useRef()
     const selectGroup = useRef();
@@ -89,8 +89,12 @@ const DragandDrop = (props) =>{
 
 
     const getStyles = () => {
-
-        select.current.length = 0;
+        try {
+            select.current.length = 0;   
+        } catch (error) {
+            console.log(error);
+        }
+        
 
         fetch(URL + 'convert/', {
             method: 'GET'
@@ -180,11 +184,11 @@ const DragandDrop = (props) =>{
 		// 		//window.location.href = response.url;
 		// });
         
-            fetch({
-                method: "get",
-                mode: 'cors',
-                url: "http://65.2.52.246:8000/static/convert_img/"+img,
-        })
+        fetch("http://1c2a-152-57-140-221.ngrok.io/static/convert_img/"+img,
+        {
+            method: "get",
+            mode: 'cors',
+    })
             .then(response => response.blob())
             .then(imageBlob => {
                 // Then create a local URL for that image and print it 
@@ -199,6 +203,16 @@ const DragandDrop = (props) =>{
     }
 
 
+
+    const handleFile = (e) => {
+        e.preventDefault();
+        let file = e.target.files;
+        if(file.length > 0){
+            selectGroup.current.style.display = "block";
+            setShowDrag(false);
+            setImageFile(file[0]);
+        }
+    }
 
 
 
@@ -216,7 +230,7 @@ const DragandDrop = (props) =>{
                    showDrag ?
                         <div>
                             <svg className="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
-                            <input className="box__file" id="file" type="file"></input>
+                            <input className="box__file" id="file" type="file" onChange={handleFile}></input>
                             <label htmlFor="file"><strong>Choose file </strong>or drag it here.</label>
                             
                         </div>
@@ -233,13 +247,21 @@ const DragandDrop = (props) =>{
                         <label htmlFor="select">Select Artistic Style</label>
                    </div>
                 
-                   :    <label htmlFor="select">Click below to download your </label>
+                   :    null 
                 }
                    
-                   <select id="select" name="style" ref={select}></select>
+                   
                 
+                   {
+                   showDragDrop ?
+                   <div>   
+                        <select id="select" name="style" ref={select}></select>
+                        <label htmlFor="select"> photo.</label>
+                   </div>
+                
+                   :    null 
+                }
 
-                   <label htmlFor="select"> photo.</label>
                    
                {
                    showDragDrop ?  
@@ -248,7 +270,7 @@ const DragandDrop = (props) =>{
                         
                         <div className="buttons">
                             <button className="blob-btn" onClick={e => submithandler(e)}>
-                                Upload
+                                Convert Image
                                 <span className="blob-btn__inner">
                                 <span className="blob-btn__blobs">
                                     <span className="blob-btn__blob"></span>
@@ -280,75 +302,18 @@ const DragandDrop = (props) =>{
                    
                 //    <button className="box__btn" onClick={downloadHandler}>Download</button> 
              
-             <div className='button'>
-        
-                        <input id='button' type='checkbox' onClick={downloadHandler}/>
-                        
-                        <label htmlFor='button'>
-                            <div className='button_inner q'>
-                            <i className='l ion-log-in'></i>
-                            <span className='t'>Download</span>
-                            <span>
-                                <i className='tick ion-checkmark-round'></i>
-                            </span>
-                            <div className='b_l_quad'>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                                <div className='button_spots'></div>
-                            </div>
-                            </div>
-                        </label>
+                <div id="wrapper" onClick={downloadHandler}>
+                    <a href="#" className="my-super-cool-btn">
+                        <div className="dots-container">
+                        <div className="dot"></div>
+                        <div className="dot"></div>
+                        <div className="dot"></div>
+                        <div className="dot"></div>
                         </div>
-                                        
+                        <span>Download</span>
+                    </a>
+                </div>
+       
                    :
                    
                        showDragDrop ? null : <Loader></Loader> 
