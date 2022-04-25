@@ -89,8 +89,12 @@ const DragandDrop = (props) =>{
 
 
     const getStyles = () => {
-
-        // select.current.length = 0;
+        try {
+            select.current.length = 0;   
+        } catch (error) {
+            console.log(error);
+        }
+        
 
         fetch(URL + 'convert/', {
             method: 'GET'
@@ -266,7 +270,7 @@ const DragandDrop = (props) =>{
                         
                         <div className="buttons">
                             <button className="blob-btn" onClick={e => submithandler(e)}>
-                                Upload
+                                Convert Image
                                 <span className="blob-btn__inner">
                                 <span className="blob-btn__blobs">
                                     <span className="blob-btn__blob"></span>
